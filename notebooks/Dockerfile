@@ -44,9 +44,9 @@ RUN apt-get install -y --no-install-recommends libpcre2-dev libbz2-dev liblzma-d
 RUN apt-get install -y fonts-ipafont fonts-ipaexfont
 RUN fc-cache -fv
 
-COPY . /usr/src/jupyter
+COPY ./src /notebooks
 
-WORKDIR /usr/src/jupyter/src
+WORKDIR /notebooks
 RUN poetry install
 
 #CMD ["poetry", "run", "jupyter", "lab", "--allow-root", "--ip=0.0.0.0", "--NotebookApp.token=''", "--no-browser"]

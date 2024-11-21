@@ -1,18 +1,18 @@
 services:
   streamlit:
     build: streamlit
-    container_name: tonkatu-st
-    image: tonkatu/streamlit
+    container_name: dask-st
+    image: datadesk/streamlit
     ports:
       - 8501:8501
     tty: true
     volumes:
       - .:/usr/src/develop
     command: ["bash"]
-  jupyter:
-    build: jupyter
-    container_name: tonkatu-jupyter
-    image: tonkatu/jupyter
+  notebooks:
+    build: notebooks
+    container_name: dask-note
+    image: datadesk/notebooks
     ports:
       - 8888:8888
     tty: true
@@ -21,8 +21,8 @@ services:
     command: ["bash"]
   elasticsearch:
     build: elasticsearch
-    container_name: tonkatu-es
-    image: tonkatu/elasticsearch
+    container_name: dask-es
+    image: datadesk/elasticsearch
     ports:
       - 9200:9200
     environment:
@@ -39,8 +39,8 @@ services:
         soft: 65536
         hard: 65536
     volumes:
-      - tonkatu-es:/usr/share/elasticsearch/data
+      - dask-es:/usr/share/elasticsearch/data
 
 volumes:
-  tonkatu-es:
+  dask-es:
     driver: local

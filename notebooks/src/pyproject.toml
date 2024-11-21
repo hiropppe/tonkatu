@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "porkcutlet"
+name = "datadesk.st"
 version = "0.1.0"
 description = ""
 authors = ["Your Name <you@example.com>"]
@@ -27,6 +27,9 @@ pymysql = "^1.1.1"
 tqdm = "^4.66.5"
 elasticsearch = "^8.15.1"
 tslearn = "^0.6.3"
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29.5"
 
 [build-system]
 requires = ["poetry-core"]
